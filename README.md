@@ -1,16 +1,16 @@
 # What's this?
 
-ACPサーバとして起動した Github Copilot CLI を利用するACPクライアント
+ACP client that uses GitHub Copilot CLI launched as an ACP server
 
 # How to use
 
-1. GitHub Copilot CLI をACPサーバとして起動する。
+1. Start GitHub Copilot CLI as an ACP server.
 
 ```sh
 copilot --acp --port 8100
 ```
 
-- サンドボックス内で起動することで、安全性を向上できる。
+- Running it inside a sandbox improves security.
     - ref. https://zenn.dev/lunran/scraps/5105de92cb9687
 
 ```sh
@@ -26,13 +26,17 @@ docker run -it \
       copilot --acp --port 8100 --autopilot --yolo --model gpt-5-mini
 ```
 
-2 . Discord設定を行い、ACPクライアントを起動する。
+2. Configure Discord settings and start the ACP client.
 
 ```sh
 git clone https://github.com/Lunran/acp-client.git
 cd acp-client
 cp .env.example .env
-.envファイルにDiscordの設定を記載する。
+```
+
+- Edit the .env file with Discord settings.
+
+```sh
 uv sync
 uv run python main.py
 ```
